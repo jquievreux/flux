@@ -13,9 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-package com.fidloo.flux.buildsrc
-
 object Versions {
     const val CompileSdkVersion = 31
     const val MinSdkVersion = 23
@@ -108,8 +105,12 @@ object Libs {
     object Hilt {
         private const val version = "2.41"
         const val library = "com.google.dagger:hilt-android:$version"
-        const val compiler = "com.google.dagger:hilt-android-compiler:$version"
+        const val androidCompiler = "com.google.dagger:hilt-android-compiler:$version"
         const val testing = "com.google.dagger:hilt-android-testing:$version"
         const val gradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:$version"
+        const val common = "androidx.hilt:hilt-common:1.0.0"
+        const val compiler = "androidx.hilt:hilt-compiler:1.0.0"
+        const val navigationFragment = "androidx.hilt:hilt-navigation-fragment:1.0.0"
+        const val work = "androidx.hilt:hilt-work:1.0.0"
     }
 }

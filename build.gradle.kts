@@ -14,12 +14,9 @@
  * limitations under the License.
  */
 
-import com.fidloo.flux.buildsrc.Libs
-
 buildscript {
-    ext.kotlin_version = '1.6.10'
-    ext.compose_version = '1.2.0-alpha06'
-    ext.coroutines_version = '1.4.2'
+    extra["kotlin_version"] = "1.6.10"
+    extra["coroutines_version"] = "1.4.2"
 
     repositories {
         google()
@@ -27,15 +24,15 @@ buildscript {
     }
 
     dependencies {
-        classpath Libs.androidGradlePlugin
-        classpath Libs.Kotlin.gradlePlugin
-        classpath Libs.Hilt.gradlePlugin
+        classpath(Libs.androidGradlePlugin)
+        classpath(Libs.Kotlin.gradlePlugin)
+        classpath(Libs.Hilt.gradlePlugin)
     }
 }
 
 plugins {
-    id 'com.diffplug.spotless' version '5.7.0'
-    id "com.github.ben-manes.versions" version '0.42.0'
+    id("com.diffplug.spotless") version "5.7.0"
+    id("com.github.ben-manes.versions") version "0.42.0"
 }
 
 subprojects {
@@ -44,15 +41,15 @@ subprojects {
         jcenter()
     }
 
-    apply plugin: 'com.diffplug.spotless'
+    apply(plugin = "com.diffplug.spotless")
     spotless {
         kotlin {
-            target '**/*.kt'
+            target("**/*.kt")
             targetExclude("$buildDir/**/*.kt")
-            targetExclude('bin/**/*.kt')
+            targetExclude("bin/**/*.kt")
 
             ktlint("0.40.0")
-            licenseHeaderFile rootProject.file('spotless/copyright.kt')
+            licenseHeaderFile(rootProject.file("spotless/copyright.kt"))
         }
     }
 }
